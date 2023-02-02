@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<title>ADD</title>
+
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
+
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/newtab.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/plugins/chosen/chosen.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/bootstrap/bootstrap.min.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/elusive-icons/elusive-icons.min.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/common.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/general.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/add-edit-form.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/main.css?version=v1.6.3" type="text/css" />
+
+	<meta name="description" content="" />
+	<meta name="robots" content="noindex, nofollow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /></head>
+<body>
+<style>
+    @media (min-width: 576px) {
+        .container .scroll-if-required {
+            max-width: 540px;
+            width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container .scroll-if-required {
+            max-width: 720px;
+            width: 720px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .container .scroll-if-required {
+            max-width: 968px;
+            width: 968px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .container .scroll-if-required {
+            width: 1168px;
+            max-width: 1168px;
+        }
+    }
+</style>
+<br/>
+<div class="crud-form" data-unique-hash="07428aa561ea69290b7e725a466d5f4c">
+    <div class="container gc-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-label">
+					<div class="floatL l5"><h1>Add</h1></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="form-container table-container">
+                    <form action="{{ url_for('add') }}" method="POST" id="crudForm" enctype="multipart/form-data">
+
+<form action="{{url_for('add')}}" method="POST">
+	<div class="form-group row">
+		<label class="col-sm-2 control-label">Institution:</label>
+		<div class="col-sm-4">
+			<input id='field-Institution' class='form-control' name='Institution' type='text' maxlength='50' value="" required />
+		</div>
+		<label class="col-sm-2 control-label">Invoice Date:</label>
+		<div class="col-sm-2">
+			<input id='field-InvoiceDate' class='form-control' name='InvoiceDate' type='text' maxlength='12' />
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 control-label">Instructor:</label>
+		<div class="col-sm-4">
+			<input id='field-Instructor' class='form-control' name='Instructor' type='text' maxlength='50' value="" required />
+		</div>
+		<label class="col-sm-2 control-label">Invoice Number:</label>
+		<div class="col-sm-2">
+			<input id='field-InvoiceNumber' class='form-control' name='InvoiceNumber' type='text' maxlength='9' value="" required />
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 control-label">Instructor Email:</label>
+		<div class="col-sm-4">
+			<input id='field-Email' class='form-control' name='Email' type='text' maxlength='14' />
+		</div>
+		<label class="col-sm-2 control-label">Instructor Key:</label>
+		<div class="col-sm-2">
+			<input id='field-AdminKey' class='form-control' name='AdminKey' type='text' maxlength='6' value="" required />
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 control-label">User Code:</label>
+		<div class="col-sm-2">
+			<input id='field-Usercode' class='form-control' name='Usercode' type='text' maxlength='9' />
+		</div>
+		<label class="col-sm-2 control-label">Count:</label>
+		<div class="col-sm-2">
+			<input id='field-AdminCount' class='form-control' name='AdminCount' type='text' maxlength='9' />
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-2 control-label">Site License:</label>
+		<div class="col-sm-1">
+			<input id='field-site_license_checkbox' class='form-control' name='site_license_checkbox' type='checkbox' value="1" unchecked />
+		</div>
+		<label class="col-sm-3 control-label">SL Expire Date:</label>
+		<div class="col-sm-2">
+			<input id='field-site_license_date' class='form-control' name='site_license_date' type='text' maxlength='12' />
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+	
+	<hr>
+	
+	<div class="form-group row">
+		<label class="col-sm-4 control-label">Show Reflection Text:</label>
+		<div class="col-sm-1">
+			<input id='field-reflection_checkbox' class='form-control' name='reflection_checkbox' type='checkbox' value="1" unchecked />
+		</div>
+		<div class="col-sm-7">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua.
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-4 control-label">Show Custom Message:</label>
+		<div class="col-sm-1">
+			<input id='field-custom_message_checkbox' class='form-control' name='custom_message_checkbox' type='checkbox' value="1" unchecked />
+		</div>
+		<div class="col-sm-7">
+			Duis aute irure dolor in reprehenderit in voluptate velit
+			esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+			occaecat cupidatat non proident, sunt anim id est laborum.
+		</div>
+	</div>
+	<div class="form-group row">
+		<div class="col-sm-5"></div>
+		<div class="col-sm-7">
+			<textarea name="custom_message" cols="40" rows="3"></textarea>
+		</div>
+	</div>
+	
+	<hr>
+	
+	<div class="form-group row">
+		<label class="col-sm-4 control-label">Show Extra Questions:</label>
+		<label class="col-sm-1 control-label">Yes:</label>
+		<div class="col-sm-1">
+			<input id='field-show_extra_questions' class='form-control' name='show_extra_questions' type='radio' value='Yes'
+				checked />
+		</div>
+		<label class="col-sm-1 control-label">No:</label>
+		<div class="col-sm-1">
+			<input id='field-show_extra_questions' class='form-control' name='show_extra_questions' type='radio'
+				value='No' />
+		</div>
+		<div class="col-sm-4"></div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-4 control-label">Question 91:</label>
+		<div class="col-sm-8">
+			<input id='field-Q61' class='form-control' name='Q91' type='text' value='' size='100' maxlength='200' />
+		</div>
+	</div>
+	
+	<div class="form-group row">
+		<label class="col-sm-4 control-label">Question 92:</label>
+		<div class="col-sm-8">
+			<input id='field-Q92' class='form-control' name='Q92' type='text' value='' size='100' maxlength='200' />
+		</div>
+	</div>
+					
+
+
+<hr>
+
+                        
+                    	<div class='small-loading hidden' id='FormLoading'>Loading, saving data...</div>
+
+                        <div class="form-group gcrud-form-group">
+                        	<div id='report-error' class='report-div error bg-danger' style="display:none"></div>
+                        	<div id='report-success' class='report-div success bg-success' style="display:none"></div>
+                    	</div>
+						<div class="form-group gcrud-form-group">
+							<div class="col-sm-offset-3 col-sm-7">
+									<button class="btn btn-secondary btn-success b10" type="submit"
+										id="form-button-save"><i class="el el-ok"></i>Save</button>
+									<a href="{{url_for('browse')}}" button class="btn btn-info b10" type="submit" id="save-and-go-back-button"><i class="el el-return-key"></i>Go back to list</button></a>
+								<a href="{{url_for('index')}}" button class="btn btn-secondary cancel-button b10" type="submit" id="cancel-button"><i class="el el-warning-sign"></i>Cancel and Go back to Home</button></a>
+							</div>
+						</div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+</form>
+        
+<script src="/static/js/jquery-2.2.4.min.js?version=v1.6.3"></script>
+<script src="/static/js/jquery.chosen.min.js?version=v1.6.3"></script>
+<script src="/static/js/jquery.chosen.config.js?version=v1.6.3"></script>
+<script src="/static/js/add.min.js?version=v1.6.3"></script>
+</body>
+</html>

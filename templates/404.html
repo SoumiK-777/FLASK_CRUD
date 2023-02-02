@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+	<title>404</title>
+
+	<link rel="shortcut icon" href="images/favicon.png" type="image/x-icon"/>
+
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/newtab.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/plugins/chosen/chosen.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/bootstrap/bootstrap.min.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/elusive-icons/elusive-icons.min.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/common.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/general.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/add-edit-form.css?version=v1.6.3" type="text/css" />
+	<link rel="stylesheet" href="/static/bootstrap-v4/css/main.css?version=v1.6.3" type="text/css" />
+
+	<meta name="description" content="" />
+	<meta name="robots" content="noindex, nofollow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /></head>
+<body>
+<style>
+    @media (min-width: 576px) {
+        .container .scroll-if-required {
+            max-width: 540px;
+            width: 540px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .container .scroll-if-required {
+            max-width: 720px;
+            width: 720px;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .container .scroll-if-required {
+            max-width: 968px;
+            width: 968px;
+        }
+    }
+
+    @media (min-width: 1200px) {
+        .container .scroll-if-required {
+            width: 1168px;
+            max-width: 1168px;
+        }
+    }
+</style>
+<br/>
+<div class="crud-form" data-unique-hash="07428aa561ea69290b7e725a466d5f4c">
+    <div class="container gc-container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-label">
+					<div class="floatL l5"><h1>404</h1></div>
+                    <div class="clear"></div>
+                </div>
+                
+
+                <h2>Hmm...there has been an error.<i class="fas fa-baseball-ball"></i></h2>
+                <p>{{ msg }}</p>
+                <a href="{{ url_for('index') }}">
+                    <button><i class="fas fa-home"></i><i class="fas fa-bone"></i>Go Home</button>
+                </a>
+
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script src="/static/js/jquery-2.2.4.min.js?version=v1.6.3"></script>
+<script src="/static/js/jquery.chosen.min.js?version=v1.6.3"></script>
+<script src="/static/js/jquery.chosen.config.js?version=v1.6.3"></script>
+<script src="/static/js/add.min.js?version=v1.6.3"></script>
+</body>
+</html>
+
+<center name="page_number" type="number" value="{{users.page}}" class="form-control page-number-input">{{users.page}}
+</center>
