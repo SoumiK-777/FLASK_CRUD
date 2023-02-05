@@ -53,6 +53,11 @@
 		}
 	</style>
 	<br />
+	{% for message in get_flashed_messages() %}
+	<div class="alert alert-warning" role="alert">
+		{{message}}
+	</div>
+	{% endfor %}
 	<div class="container-fluid gc-container">
 
 		<div class="row">

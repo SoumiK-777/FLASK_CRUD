@@ -1,10 +1,11 @@
-from flask import Flask,render_template, url_for, request, redirect
+from flask import Flask,render_template, url_for, request, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.sqlite'
+app.config['SECRET_KEY']="Mysecretkey"
 db = SQLAlchemy(app)
 
 class Users(db.Model):
@@ -53,11 +54,11 @@ class Users(db.Model):
 @app.route('/', methods=['GET','POST'])
 def index():
     if request.form:
-        per_page=request.args.get('per_page',10)
-        Institution=request.form['Institution']
-        InvoiceNumber=request.form['InvoiceNumber']
-        Instructor=request.form['Instructor']
-        AdminKey=request.form['AdminKey']
+        per_page=10
+        Institution=request.form.get('Institution')
+        InvoiceNumber=request.form.get('InvoiceNumber')
+        Instructor=request.form.get('Instructor')
+        AdminKey=request.form.get('AdminKey')
         if Institution and InvoiceNumber:
             users=Users.query.filter_by(Institution=Institution,InvoiceNumber=InvoiceNumber).paginate(page=1,per_page=per_page,error_out=False)
         elif Institution:
@@ -80,20 +81,10 @@ def index():
 @app.route('/browse', methods=['GET', 'POST'],defaults={'page':1})
 @app.route('/browse/<int:page>', methods=['GET', 'POST'])
 def browse(page):
-    # per_page=request.args.get('per_page',10)
-    # users = Users.query.all()
     page_num=request.form.get('page_number',page,type=int)
     users_paginate = Users.query.paginate(page=page_num,per_page=10,error_out=False)
     print("page=",page_num)
     return render_template('browse.html', users=users_paginate)
-
-# @app.route('/searchResults', methods=['GET', 'POST'], defaults={'page':1})
-# @app.route('/searchResults/<int:page>', methods=['GET', 'POST'])
-# def searchResults(users,page):
-#     per_page=10
-#     users_paginate = users.paginate(page=page,per_page=per_page,error_out=False)
-#     return render_template('searchResults.html', users=users_paginate)
-
 
 @app.route('/edit/<int:id>', methods=['GET', 'POST'])
 def edit(id):
@@ -131,6 +122,7 @@ def edit(id):
         if(user.custom_message_checkbox=="on"):
             user.custom_message_checkbox='1'
         db.session.commit()
+        flash("Details Updated Successfully!")
         return redirect(url_for('browse'))
     return render_template('edit.html', user=user)
 
@@ -169,6 +161,7 @@ def add():
             new_user.site_license_date=date
         db.session.add(new_user)
         db.session.commit()
+        flash("Details Added Successfully!")
         return redirect(url_for('add'))
     return render_template('add.html')
 
@@ -181,6 +174,7 @@ def delete(id):
             user=users[i]
     db.session.delete(user)
     db.session.commit()
+    flash("Details Deleted Successfully!")
     return redirect(url_for('browse'))
 
 @app.errorhandler(404)
